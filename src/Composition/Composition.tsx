@@ -85,17 +85,17 @@ const Main: React.FC<MainProps> = ({
           <TransitionSeries.Sequence durationInFrames={scene1Duration}>
             <Scene1 {...scene1Props} background={background} />
           </TransitionSeries.Sequence>
-          <TransitionSeries.Transition
+          {/* <TransitionSeries.Transition
             presentation={customL2RPresentation({ height: HEIGHT, width: WIDTH })}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-          />
+          /> */}
           <TransitionSeries.Sequence durationInFrames={scene2Duration}>
             <Scene2 {...scene2Props} background={background} />
           </TransitionSeries.Sequence>
-          <TransitionSeries.Transition
+          {/* <TransitionSeries.Transition
             presentation={customCenterPresentation({ height: HEIGHT, width: WIDTH })}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-          />
+          /> */}
           <TransitionSeries.Sequence durationInFrames={scene3Duration}>
             <Scene3 {...scene3Props} background={background} />
           </TransitionSeries.Sequence>
@@ -103,17 +103,17 @@ const Main: React.FC<MainProps> = ({
             presentation={WideSlidePresentation({ direction: 'from-bottom' })}
             timing={linearTiming({ durationInFrames: transitionDuration })}
           /> */}
-          {/* <TransitionSeries.Sequence durationInFrames={scene4Duration}>
+          <TransitionSeries.Sequence durationInFrames={scene4Duration}>
             <Scene4 {...scene4Props} background={background} />
           </TransitionSeries.Sequence>
-          <TransitionSeries.Transition
+          {/*  <TransitionSeries.Transition
             presentation={customL2RPresentation({ height: HEIGHT, width: WIDTH })}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-          />
+        />*/}
           <TransitionSeries.Sequence durationInFrames={scene5Duration}>
             <Scene5 {...scene5Props} background={background} />
           </TransitionSeries.Sequence>
-          <TransitionSeries.Transition
+          {/*<TransitionSeries.Transition
             presentation={WideSlidePresentation({ direction: 'from-bottom' })}
             timing={linearTiming({ durationInFrames: transitionDuration })}
           />

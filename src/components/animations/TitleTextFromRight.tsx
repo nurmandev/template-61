@@ -1,7 +1,15 @@
 import { Fragment } from 'react/jsx-runtime';
 import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 
-export const TitleTextFromRight = ({ text, startAt = 0 }: { text: string; startAt?: number }) => {
+export const TitleTextFromRight = ({
+  text,
+  startAt = 0,
+  gradient = false,
+}: {
+  text: string;
+  startAt?: number;
+  gradient?: boolean;
+}) => {
   const { durationInFrames } = useVideoConfig();
   const frame = useCurrentFrame();
   const lines = text.split('\n');
@@ -18,7 +26,7 @@ export const TitleTextFromRight = ({ text, startAt = 0 }: { text: string; startA
             lineHeight: '110px',
             position: 'relative',
             whiteSpace: 'nowrap',
-            textShadow: '5px 20px 50px #00000020',
+            textShadow: gradient ? '' : '5px 20px 50px #00000020',
             left: interpolate(
               (frame - startAt - lineIndex * 5) / (durationInFrames - startAt),
               [0, 0.23, 0.46, 0.7],
@@ -51,6 +59,10 @@ export const TitleTextFromRight = ({ text, startAt = 0 }: { text: string; startA
                     top: 0,
                     left,
                     opacity,
+                    background: 'linear-gradient(90deg, #f61174ab 0%, rgba(227,186,17,1) 100%)',
+                    WebkitBackgroundClip: 'text',
+                    color: gradient ? 'transparent' : 'white',
+                    display: 'inline-block',
                   }}
                 >
                   {word}

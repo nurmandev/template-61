@@ -47,7 +47,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         </div>
         <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
           <ShowImage
-            src={staticFile('image3.jpg')}
+            src={staticFile('Media_4.jpg')}
             width={WIDTH * 0.5 - 100}
             height={HEIGHT * 0.65}
             rate={0}
