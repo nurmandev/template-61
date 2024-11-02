@@ -29,8 +29,8 @@ export const TitleTextFromRight = ({
             textShadow: gradient ? '' : '5px 20px 50px #00000020',
             left: interpolate(
               (frame - startAt - lineIndex * 5) / (durationInFrames - startAt),
-              [0, 0.23, 0.46, 0.7],
-              [100, 15, -5, 0],
+              [0,  0.1],
+              [100, 0],
               {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
@@ -46,7 +46,7 @@ export const TitleTextFromRight = ({
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
             });
-            const left = interpolate(frame, [startFrame, startFrame + delay], [50, 0], {
+            const left = interpolate(frame, [startFrame, startFrame + delay], [25, 0], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
             });

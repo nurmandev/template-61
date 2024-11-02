@@ -17,6 +17,8 @@ import { WideSlidePresentation } from '../transitions/WideSlidePresentation';
 import { customCenterPresentation } from '../transitions/CenterPresentation';
 import { HEIGHT, WIDTH } from '../lib/consts';
 import { customL2RPresentation } from '../transitions/Left2RightPresentation';
+import { centerWipe } from '../transitions/CenterWipePresentation';
+import { wipe } from '../transitions/WipePresentation';
 
 export const MainSchema = z.object({
   audioVolume: z.number(),
@@ -85,41 +87,42 @@ const Main: React.FC<MainProps> = ({
           <TransitionSeries.Sequence durationInFrames={scene1Duration}>
             <Scene1 {...scene1Props} background={background} />
           </TransitionSeries.Sequence>
-          {/* <TransitionSeries.Transition
-            presentation={customL2RPresentation({ height: HEIGHT, width: WIDTH })}
+          <TransitionSeries.Transition
+            presentation={centerWipe({direction:'horizontal'})}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-          /> */}
+          />
           <TransitionSeries.Sequence durationInFrames={scene2Duration}>
             <Scene2 {...scene2Props} background={background} />
           </TransitionSeries.Sequence>
-          {/* <TransitionSeries.Transition
-            presentation={customCenterPresentation({ height: HEIGHT, width: WIDTH })}
+          
+          <TransitionSeries.Transition
+            presentation={centerWipe({direction:'diagonal'})}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-          /> */}
+          />
           <TransitionSeries.Sequence durationInFrames={scene3Duration}>
             <Scene3 {...scene3Props} background={background} />
           </TransitionSeries.Sequence>
-          {/* <TransitionSeries.Transition
-            presentation={WideSlidePresentation({ direction: 'from-bottom' })}
+          <TransitionSeries.Transition
+            presentation={centerWipe({direction:'vertical'})}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-          /> */}
+          />
           <TransitionSeries.Sequence durationInFrames={scene4Duration}>
             <Scene4 {...scene4Props} background={background} />
           </TransitionSeries.Sequence>
-          {/*  <TransitionSeries.Transition
-            presentation={customL2RPresentation({ height: HEIGHT, width: WIDTH })}
+          <TransitionSeries.Transition
+            presentation={wipe({direction:'from-top'})}
             timing={linearTiming({ durationInFrames: transitionDuration })}
-        />*/}
+          />
           <TransitionSeries.Sequence durationInFrames={scene5Duration}>
             <Scene5 {...scene5Props} background={background} />
           </TransitionSeries.Sequence>
-          {/*<TransitionSeries.Transition
-            presentation={WideSlidePresentation({ direction: 'from-bottom' })}
+          <TransitionSeries.Transition
+            presentation={centerWipe()}
             timing={linearTiming({ durationInFrames: transitionDuration })}
           />
           <TransitionSeries.Sequence durationInFrames={scene6Duration}>
             <Scene6 {...scene6Props} background={background} />
-          </TransitionSeries.Sequence> */}
+          </TransitionSeries.Sequence>
         </TransitionSeries>
       </AbsoluteFill>
     </LoadFonts>

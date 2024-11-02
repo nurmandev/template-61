@@ -43,7 +43,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         }}
       >
         <div style={{ position: 'absolute', top: 0, right: WIDTH * 0.5 }}>
-          <ShowImage src={staticFile('bubble.webp')} height={HEIGHT * 0.5} rate={0.1} />
+          <ShowImage src={staticFile('bubble.webp')} height={HEIGHT * 0.5} delay={10} rate={0.1} />
         </div>
         <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
           <ShowImage
@@ -51,6 +51,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
             width={WIDTH * 0.5 - 100}
             height={HEIGHT * 0.65}
             rate={0}
+            delay={10}
           />
         </div>{' '}
         <div
@@ -63,11 +64,11 @@ const Scene2: React.FC<Scene2Props> = (props) => {
           <Logo logo={staticFile('sample_logo.png')} height={100} direction="from-right" />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
-          <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={10} />
+          <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} />
         </div>
-        <TitleTextFromRight text={titleSplit.text} />
+        <TitleTextFromRight text={titleSplit.text} startAt={15} />
         <div style={{ marginTop: 50, marginBottom: -20 }}>
-          <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={10} />
+          <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} />
         </div>
       </div>
     </AbsoluteFill>

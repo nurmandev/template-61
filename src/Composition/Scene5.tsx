@@ -40,14 +40,14 @@ const Scene5: React.FC<Scene5Props> = (props) => {
         }}
       >
         <div style={{ position: 'absolute', top: 0, left: 0, width: WIDTH * 0.4 }}>
-          <GradientOverlay direction="bottomToTop" height={HEIGHT} opacity={1} rate={0} />
+          <GradientOverlay direction="bottomToTop" height={HEIGHT} delay={15} opacity={1} rate={0} />
         </div>
         <div style={{ position: 'absolute', top: 100, right: '50%' }}>
           <ShowImage src={staticFile('image6.jpg')} height={HEIGHT * 0.8} rate={0.45} />
         </div>
 
         <div style={{ position: 'absolute', top: 0, right: '20%', width: WIDTH * 0.13 }}>
-          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.1} rate={0.1} />
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.1} delay={20} rate={0.1} />
         </div>
 
         <div
