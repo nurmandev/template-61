@@ -1,51 +1,60 @@
-import { AbsoluteFill, Img } from 'remotion';
+import { AbsoluteFill, staticFile } from 'remotion';
 import { z } from 'zod';
-import Circle from '../components/Circle';
-import { BackgroundProps } from '../backgrounds';
-import { Background } from '../components/Background';
+import Logo from '../components/Logo';
 import { HEIGHT, WIDTH } from '../lib/consts';
+
+import { BackgroundProps } from '../backgrounds';
 import { colorVar } from '../lib/helpers';
+import { useTextSplitter } from '../lib/useTextSplitter';
+import { TitleTextFromRight } from '../components/animations/TitleTextFromRight';
+import GradientOverlay from '../components/GradirntOverlay';
 
 export const scene6Schema = z.object({
   logo: z.string(),
+  img: z.string(),
+  title: z.string(),
 });
-
 type Scene6Props = z.infer<typeof scene6Schema> & { background: BackgroundProps };
 
 const Scene6: React.FC<Scene6Props> = (props) => {
-
+  const titleSplit = useTextSplitter({
+    text: props.title.toUpperCase(),
+    fontSize: 80,
+    fontWeight: '600',
+    letterSpacing: '6px',
+    maxLines: 2,
+    maxWidth: 1000,
+  });
   return (
-    <AbsoluteFill style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Background {...props.background} />
+    <AbsoluteFill>
       <div
         style={{
-          position: 'relative',
           width: WIDTH,
           height: HEIGHT,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          overflow: 'hidden',
+          color: colorVar('primaryText'),
+          background: 'linear-gradient(0deg, rgba(246,17,115,1) 0%, rgba(227,186,17,1) 100%)',
+          // background:"white",
+          position: 'relative',
         }}
       >
-        <Img src={props.logo} width={500} />
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-        >
-          <Circle radius={200} strokeColor={colorVar("secondary")} strokeWidth={40} />
-        </div>
-        <div
-          style={{
-            position: 'absolute',
-            right: 0,
-            bottom: 0,
-          }}
-        >
-          <Circle radius={200} strokeColor={colorVar("secondary")} strokeWidth={40} />
+        
+        <AbsoluteFill style={{ display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column", }}>
+          <div style={{marginBottom:30}}>
+
+          <Logo logo={staticFile('sample_logo.png')} height={250} direction="from-right" />
+          </div>
+          <div style={{textAlign:"center",
+          ...titleSplit.style}}>
+
+        <TitleTextFromRight text={titleSplit.text}  />
+          </div>
+          <div style={{fontSize:70}}>
+
+        <TitleTextFromRight text={"www.example.com"}  />
+          </div>
+        </AbsoluteFill>
+        <div style={{ position: 'absolute', top: 0, right:100, width: WIDTH * 0.13 }}>
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.2} rate={0} delay={20} gradient={false} />
         </div>
       </div>
     </AbsoluteFill>

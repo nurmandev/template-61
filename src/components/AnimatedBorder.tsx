@@ -12,8 +12,8 @@ const AnimatedBorder = ({
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
-  const topBottomDuration = (width / (width + height)) * durationInFrames;
-  const sideDuration = (height / (width + height)) * durationInFrames;
+  const topBottomDuration = (width / (width + height)) * durationInFrames*0.25;
+  const sideDuration = (height / (width + height)) * durationInFrames*0.5;
 
   // Frame Ranges
   const topBottomFrames = topBottomDuration / 4;

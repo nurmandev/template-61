@@ -1,6 +1,5 @@
 import { Composition, staticFile } from 'remotion';
 import Main, { MainSchema } from './Composition/Composition';
-import { Compare } from './Composition/Compare';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -12,7 +11,7 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1920}
         height={1080}
-        durationInFrames={830}
+        durationInFrames={750}
         defaultProps={{
           audioVolume: 0.5,
           music: staticFile('music.mp3'),
@@ -43,32 +42,34 @@ export const RemotionRoot: React.FC = () => {
             logo: staticFile('Logo.png'),
             title: 'MASTER ENGLISH, MASTER THE WORLD',
           },
-          scene2Duration: 180,
+          scene2Duration: 150,
           scene2Props: {
             logo: staticFile('Logo.png'),
             title: 'WANT TO SPEAK ENGLISH FLUENTLY?',
           },
-          scene3Duration: 180,
+          scene3Duration: 150,
           scene3Props: {
             title: 'BAD SKILLS CAN LIMIT OPPORTUNITIES',
             logo: staticFile('Logo.png'),
             img: staticFile('Media_2.jpg'),
           },
-          scene4Duration: 180,
+          scene4Duration: 150,
           scene4Props: {
             title: 'EXPERIENCED iNSTRUCTORS',
             logo: staticFile('Logo.png'),
             img: staticFile('Media_2.jpg'),
           },
-          scene5Duration: 180,
+          scene5Duration: 150,
           scene5Props: {
             title: 'GAIN FLUENCY, CONFIDENCE',
             logo: staticFile('Logo.png'),
             img: staticFile('Media_2.jpg'),
           },
-          scene6Duration: 180,
+          scene6Duration: 150,
           scene6Props: {
+            title: 'ENROLL NOW AND START YOUR JOURNEY TO ENGLISH FLUENCY!',
             logo: staticFile('Logo.png'),
+            img: staticFile('Media_2.jpg'),
           },
         }}
       />

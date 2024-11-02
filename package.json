@@ -19,6 +19,7 @@
     "@remotion/shapes": "4.0.213",
     "@remotion/transitions": "4.0.213",
     "@remotion/zod-types": "4.0.213",
+    "pnpm": "^9.12.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "remotion": "4.0.213",
