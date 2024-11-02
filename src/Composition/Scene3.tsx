@@ -46,13 +46,13 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         <div style={{ position: 'absolute', top: 0, right: 0 }}>
           <img src={staticFile('image3.jpg')} style={{ width: WIDTH, height: HEIGHT }} />
         </div>
-        <GradientOverlay direction="leftToRight" height={HEIGHT} rate={0.46} />
+        <GradientOverlay direction="leftToRight" height={HEIGHT} rate={0.46} delay={45} />
         <div style={{ position: 'absolute', top: '35%', left: 0, width: WIDTH * 0.5 }}>
           <GradientOverlay
             direction="rightToLeft"
             height={HEIGHT * 0.2}
             opacity={0.2}
-            rate={0.46}
+            rate={0.46} delay={45}
           />
         </div>
         <div
@@ -66,7 +66,7 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         </div>
 
         <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
-          <TitleTextFromRight text={titleSplit.text} />
+          <TitleTextFromRight text={titleSplit.text} startAt={48} />
         </div>
 
         <div style={{ position: 'absolute', top: 100, right: '-35%' }}>

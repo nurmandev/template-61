@@ -1,5 +1,5 @@
 import { Fragment } from 'react/jsx-runtime';
-import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
+import { Easing, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export const TitleTextFromRight = ({
   text,
@@ -14,8 +14,6 @@ export const TitleTextFromRight = ({
   const frame = useCurrentFrame();
   const lines = text.split('\n');
 
-  let wordIndex = 0;
-
   return (
     <>
       {lines.map((line, lineIndex) => (
@@ -28,37 +26,61 @@ export const TitleTextFromRight = ({
             whiteSpace: 'nowrap',
             textShadow: gradient ? '' : '5px 20px 50px #00000020',
             left: interpolate(
-              (frame - startAt - lineIndex * 5) / (durationInFrames - startAt),
-              [0,  0.1],
-              [100, 0],
+              (frame - startAt - lineIndex * 15) / (durationInFrames - startAt),
+              [0, 0.3],
+              [50, 0],
               {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
+                easing: Easing.out(Easing.quad),
+              }
+            ),
+            opacity: interpolate(
+              (frame - startAt - lineIndex * 15) / (durationInFrames - startAt),
+              [0, 0.3],
+              [0, 1],
+              {
+                extrapolateLeft: 'clamp',
+                extrapolateRight: 'clamp',
+                easing: Easing.out(Easing.quad),
               }
             ),
           }}
         >
           {line.split(' ').map((word, index) => {
-            const delay = 10;
-            const startFrame = delay * wordIndex;
-            wordIndex += 1;
-            const opacity = interpolate(frame, [startFrame, startFrame + delay], [0, 1], {
-              extrapolateLeft: 'clamp',
-              extrapolateRight: 'clamp',
-            });
-            const left = interpolate(frame, [startFrame, startFrame + delay], [25, 0], {
-              extrapolateLeft: 'clamp',
-              extrapolateRight: 'clamp',
-            });
+            const wordDelay = 6;
+            const startFrame = startAt + lineIndex * 15 + wordDelay * index;
+
+            const wordOpacity = interpolate(
+              frame,
+              [startFrame, startFrame + wordDelay * 2],
+              [0, 1],
+              {
+                extrapolateLeft: 'clamp',
+                extrapolateRight: 'clamp',
+                easing: Easing.out(Easing.quad),
+              }
+            );
+
+            const wordLeft = interpolate(
+              frame,
+              [startFrame, startFrame + wordDelay],
+              [25, 0],
+              {
+                extrapolateLeft: 'clamp',
+                extrapolateRight: 'clamp',
+                easing: Easing.out(Easing.quad),
+              }
+            );
 
             return (
-              <Fragment key={`word-${index}-${wordIndex}`}>
+              <Fragment key={`word-${index}-${lineIndex}`}>
                 <span
                   style={{
                     position: 'relative',
                     top: 0,
-                    left,
-                    opacity,
+                    left: wordLeft,
+                    opacity: wordOpacity,
                     background: 'linear-gradient(90deg, #f61174ab 0%, rgba(227,186,17,1) 100%)',
                     WebkitBackgroundClip: 'text',
                     color: gradient ? 'transparent' : 'white',

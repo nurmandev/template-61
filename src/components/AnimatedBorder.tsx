@@ -4,30 +4,37 @@ const AnimatedBorder = ({
   width,
   height,
   borderWidth,
+  delay = 0, // Delay prop with default value
 }: {
   width: number;
   height: number;
   borderWidth: number;
+  delay?: number;
 }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
-  const topBottomDuration = (width / (width + height)) * durationInFrames*0.25;
-  const sideDuration = (height / (width + height)) * durationInFrames*0.5;
+  const topBottomDuration = (width / (width + height)) * durationInFrames * 0.25;
+  const sideDuration = (height / (width + height)) * durationInFrames * 0.5;
 
-  // Frame Ranges
+  // Frame ranges with delay applied
   const topBottomFrames = topBottomDuration / 4;
   const sideFrames = sideDuration / 2;
 
   // Top Border
-  const horizontalTopProgress = interpolate(frame, [0, topBottomFrames], [0, 50], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const horizontalTopProgress = interpolate(
+    frame - delay, // Offset the frame by delay
+    [0, topBottomFrames],
+    [0, 50],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    }
+  );
 
   // Left and Right Borders
   const verticalProgress = interpolate(
-    frame,
+    frame - delay, // Offset the frame by delay
     [topBottomFrames, topBottomFrames + sideFrames],
     [0, 100],
     {
@@ -38,7 +45,7 @@ const AnimatedBorder = ({
 
   // Bottom Border
   const horizontalBottomProgress = interpolate(
-    frame,
+    frame - delay, // Offset the frame by delay
     [topBottomFrames + sideFrames, durationInFrames / 2],
     [0, 50],
     {

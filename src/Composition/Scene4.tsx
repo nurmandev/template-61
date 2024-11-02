@@ -72,7 +72,7 @@ const Scene4: React.FC<Scene4Props> = (props) => {
             transform: 'translate(-50%,-50%)',
           }}
         >
-          <TitleTextFromRight text={titleSplit.text} />
+          <TitleTextFromRight text={titleSplit.text} startAt={48} />
         </div>
 
         <div style={{ position: 'absolute', top: -10, right: '50%', transform: 'translate(50%)' }}>

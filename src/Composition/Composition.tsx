@@ -1,4 +1,4 @@
-import { AbsoluteFill, Audio, staticFile, useVideoConfig } from 'remotion';
+import { AbsoluteFill,  useVideoConfig } from 'remotion';
 import { TransitionSeries, linearTiming } from '@remotion/transitions';
 import { z } from 'zod';
 
@@ -13,10 +13,6 @@ import { LoadFonts } from '../lib/LoadFonts';
 import { getCSSVariables } from '../lib/helpers';
 import { Colors, Fonts } from '../types';
 import { BackgroundProps } from '../backgrounds';
-import { WideSlidePresentation } from '../transitions/WideSlidePresentation';
-import { customCenterPresentation } from '../transitions/CenterPresentation';
-import { HEIGHT, WIDTH } from '../lib/consts';
-import { customL2RPresentation } from '../transitions/Left2RightPresentation';
 import { centerWipe } from '../transitions/CenterWipePresentation';
 import { wipe } from '../transitions/WipePresentation';
 
@@ -122,8 +118,9 @@ const Main: React.FC<MainProps> = ({
           />
           <TransitionSeries.Sequence durationInFrames={scene6Duration}>
             <Scene6 {...scene6Props} background={background} />
-          </TransitionSeries.Sequence>
+          </TransitionSeries.Sequence> 
         </TransitionSeries>
+        
       </AbsoluteFill>
     </LoadFonts>
   );
