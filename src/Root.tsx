@@ -11,7 +11,7 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1920}
         height={1080}
-        durationInFrames={750}
+        durationInFrames={900}
         defaultProps={{
           audioVolume: 0.5,
           music: staticFile('music.mp3'),
@@ -36,36 +36,36 @@ export const RemotionRoot: React.FC = () => {
             primary: 'FrancoisOne',
             secondary: 'Abel',
           },
-          transitionDuration: 30,
-          scene1Duration: 150,
+          transitionDuration:50,
+          scene1Duration: 200,
           scene1Props: {
             logo: staticFile('Logo.png'),
             title: 'MASTER ENGLISH, MASTER THE WORLD',
           },
-          scene2Duration: 150,
+          scene2Duration: 200,
           scene2Props: {
             logo: staticFile('Logo.png'),
             title: 'WANT TO SPEAK ENGLISH FLUENTLY?',
           },
-          scene3Duration: 150,
+          scene3Duration: 200,
           scene3Props: {
             title: 'BAD SKILLS CAN LIMIT OPPORTUNITIES',
             logo: staticFile('Logo.png'),
             img: staticFile('Media_2.jpg'),
           },
-          scene4Duration: 150,
+          scene4Duration: 200,
           scene4Props: {
             title: 'EXPERIENCED iNSTRUCTORS',
             logo: staticFile('Logo.png'),
             img: staticFile('Media_2.jpg'),
           },
-          scene5Duration: 150,
+          scene5Duration: 200,
           scene5Props: {
             title: 'GAIN FLUENCY, CONFIDENCE',
             logo: staticFile('Logo.png'),
             img: staticFile('Media_2.jpg'),
           },
-          scene6Duration: 150,
+          scene6Duration: 200,
           scene6Props: {
             title: 'ENROLL NOW AND START YOUR JOURNEY TO ENGLISH FLUENCY!',
             logo: staticFile('Logo.png'),

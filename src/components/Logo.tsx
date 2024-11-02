@@ -5,6 +5,7 @@ interface LogoProps {
   width?: number;
   height?: number;
   direction?: 'from-left' | 'from-right' | 'center';
+  delay?: number;
 }
 
 const leftPoints = (direction: string) => {
@@ -17,15 +18,15 @@ const leftPoints = (direction: string) => {
   return { start: 0, end: 0 };
 };
 
-const Logo = ({ logo, width, height, direction = 'from-left' }: LogoProps) => {
+const Logo = ({ logo, width, height, direction = 'from-left', delay = 0 }: LogoProps) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
   const { start, end } = leftPoints(direction);
 
   const left = spring({
-    frame: frame,
-    fps: 50,
+    frame: Math.max(0, frame - delay), // Apply delay here
+    fps:50,
     from: start,
     to: end,
     config: {
@@ -35,7 +36,7 @@ const Logo = ({ logo, width, height, direction = 'from-left' }: LogoProps) => {
   });
 
   const opacity = spring({
-    frame: frame,
+    frame: Math.max(0, frame - delay), // Apply delay here
     fps,
     from: 0,
     to: 1,
@@ -57,7 +58,6 @@ const Logo = ({ logo, width, height, direction = 'from-left' }: LogoProps) => {
         style={{
           width: width || 'auto',
           height: height || 'auto',
-          // position: 'absolute',
           zIndex: 1,
         }}
       />

@@ -73,7 +73,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
           <div style={{ marginBottom: 50 }}>
             <Logo logo={staticFile('sample_logo.png')} height={120} direction="from-right" />
           </div>
-          <TitleTextFromRight text={titleSplit.text} gradient />
+          <TitleTextFromRight text={titleSplit.text} gradient startAt={48} />
         </div>
 
         <div style={{ position: 'absolute', top: -10, left: '20%', transform: 'rotate(90deg)' }}>

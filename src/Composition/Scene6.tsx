@@ -23,7 +23,7 @@ const Scene6: React.FC<Scene6Props> = (props) => {
     fontWeight: '600',
     letterSpacing: '6px',
     maxLines: 2,
-    maxWidth: 1000,
+    maxWidth: 1200,
   });
   return (
     <AbsoluteFill>
@@ -46,15 +46,15 @@ const Scene6: React.FC<Scene6Props> = (props) => {
           <div style={{textAlign:"center",
           ...titleSplit.style}}>
 
-        <TitleTextFromRight text={titleSplit.text}  />
+        <TitleTextFromRight text={titleSplit.text} startAt={25}  />
           </div>
           <div style={{fontSize:70}}>
 
-        <TitleTextFromRight text={"www.example.com"}  />
+        <TitleTextFromRight text={"www.example.com"} startAt={70} />
           </div>
         </AbsoluteFill>
         <div style={{ position: 'absolute', top: 0, right:100, width: WIDTH * 0.13 }}>
-          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.2} rate={0} delay={20} gradient={false} />
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.2} rate={0} delay={35} gradient={false} />
         </div>
       </div>
     </AbsoluteFill>

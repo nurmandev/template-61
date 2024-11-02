@@ -18,13 +18,14 @@ const ShowImage = ({
   
 
   // Calculate the scale animation for zoom out effect
-  const scaleAnimation = interpolate(frame, [delay, (durationInFrames * 0.5)+delay], [1, 1.05], {
+  const scaleAnimation = interpolate(frame, [delay, (durationInFrames )+delay], [1, 1.05], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
+    easing: Easing.out(Easing.ease),
   });
 
   // Calculate the clip-path percentage for uncropping effect
-  const clipPathProgress = interpolate(frame, [delay, (durationInFrames * 0.15)+delay], [1, rate], {
+  const clipPathProgress = interpolate(frame, [delay, (durationInFrames * 0.25)+delay], [1, rate], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.ease),

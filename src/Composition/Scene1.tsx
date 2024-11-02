@@ -44,7 +44,7 @@ const Scene1: React.FC<Scene1Props> = (props) => {
         }}
       >
         <div style={{ position: 'absolute', top: 0, right: 500 }}>
-          <ShowImage src={staticFile('teaching.png')} height={HEIGHT} rate={0.7} />
+          <ShowImage src={staticFile('teaching.png')} height={HEIGHT} rate={0.65} delay={5} />
         </div>
         <div style={{ position: 'absolute', top: 0, right: 0 }}>
           <ShowImage src={staticFile('books.jpg')} width={500} height={HEIGHT * 0.7} rate={0} />
@@ -54,9 +54,9 @@ const Scene1: React.FC<Scene1Props> = (props) => {
             marginBottom: 70,
           }}
         >
-          <Logo logo={staticFile('sample_logo.png')} height={300} direction="from-right" />
+          <Logo logo={staticFile('sample_logo.png')} height={300} direction="from-right" delay={15} />
         </div>
-        <TitleTextFromRight text={titleSplit.text} />
+        <TitleTextFromRight text={titleSplit.text} startAt={16} />
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
           <AnimatedBorder width={WIDTH * 0.5} height={90} borderWidth={10} />
         </div>
