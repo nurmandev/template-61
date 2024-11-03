@@ -2,7 +2,7 @@ import { Easing, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 
 type Direction = 'leftToRight' | 'rightToLeft' | 'topToBottom' | 'bottomToTop';
 
-const GradientOverlayAnimation = ({
+const GradientOverlay = ({
   width,
   height,
   rate,
@@ -76,4 +76,4 @@ const GradientOverlayAnimation = ({
   );
 };
 
-export default GradientOverlayAnimation;
+export default GradientOverlay;

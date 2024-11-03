@@ -8,6 +8,8 @@ import { BackgroundProps } from '../backgrounds';
 import Logo from '../components/Logo';
 import ShowImage from '../components/ShowImage';
 import AnimatedBorder from '../components/AnimatedBorder';
+import LineAnimation from '../components/LineAnimation';
+import GradientOverlay from '../components/GradirntOverlay';
 
 export const scene2Schema = z.object({
   logo: z.string(),
@@ -43,7 +45,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         }}
       >
         <div style={{ position: 'absolute', top: 0, right: WIDTH * 0.5 }}>
-          <ShowImage src={staticFile('bubble.webp')} height={HEIGHT * 0.5} delay={34} rate={0.1} />
+          <ShowImage src={staticFile('bubble.webp')} height={HEIGHT * 0.45} delay={34} rate={0.15} />
         </div>
         <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
           <ShowImage
@@ -61,7 +63,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
             right: 20,
           }}
         >
-          <Logo logo={staticFile('sample_logo.png')} height={100} direction="from-right" />
+          <Logo logo={staticFile('sample_logo.png')} height={100} direction="from-right" delay={50} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} delay={50} />
@@ -71,6 +73,19 @@ const Scene2: React.FC<Scene2Props> = (props) => {
           <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} delay={50} />
         </div>
       </div>
+        <AbsoluteFill style={{left:100,top:100}}>
+          <LineAnimation/>
+        </AbsoluteFill>
+        <AbsoluteFill style={{top:'85%',right:100,left:'auto',width:100}}>
+          <LineAnimation startAt={45}/>
+        </AbsoluteFill>
+        
+        <AbsoluteFill style={{  width: WIDTH * 0.11, left:'45%' }}>
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.3} rate={0.65} delay={30} gradient={true}  />
+        </AbsoluteFill>
+        <AbsoluteFill style={{  width: WIDTH * 0.12,left:'10%' }}>
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.15} rate={0} delay={30} gradient={false} />
+        </AbsoluteFill>
     </AbsoluteFill>
   );
 };

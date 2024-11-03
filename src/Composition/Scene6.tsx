@@ -8,6 +8,7 @@ import { colorVar } from '../lib/helpers';
 import { useTextSplitter } from '../lib/useTextSplitter';
 import { TitleTextFromRight } from '../components/animations/TitleTextFromRight';
 import GradientOverlay from '../components/GradirntOverlay';
+import LineAnimation from '../components/LineAnimation';
 
 export const scene6Schema = z.object({
   logo: z.string(),
@@ -57,6 +58,12 @@ const Scene6: React.FC<Scene6Props> = (props) => {
           <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.2} rate={0} delay={35} gradient={false} />
         </div>
       </div>
+        <AbsoluteFill style={{top:200,left:'25%'}}>
+          <LineAnimation startAt={48}/>
+        </AbsoluteFill>
+        <AbsoluteFill style={{top:'70%',left:'80%'}}>
+          <LineAnimation startAt={45} />
+        </AbsoluteFill>
     </AbsoluteFill>
   );
 };
