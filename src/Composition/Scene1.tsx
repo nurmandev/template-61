@@ -8,6 +8,8 @@ import { BackgroundProps } from '../backgrounds';
 import Logo from '../components/Logo';
 import ShowImage from '../components/ShowImage';
 import AnimatedBorder from '../components/AnimatedBorder';
+import GradientOverlay from '../components/GradirntOverlay';
+import LineAnimation from '../components/LineAnimation';
 
 export const scene1Schema = z.object({
   logo: z.string(),
@@ -60,6 +62,20 @@ const Scene1: React.FC<Scene1Props> = (props) => {
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
           <AnimatedBorder width={WIDTH * 0.5} height={90} borderWidth={10} />
         </div>
+        
+        <AbsoluteFill style={{  width: WIDTH * 0.12,left:'10%' }}>
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.15} rate={0} delay={16} gradient={false} />
+        </AbsoluteFill>
+        
+        <AbsoluteFill style={{  width: WIDTH * 0.12,right:'20%',top:100, left:'auto' }}>
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.3} rate={0.7} delay={16} gradient={true}  />
+        </AbsoluteFill>
+        <AbsoluteFill style={{left:'35%',top:100}}>
+          <LineAnimation/>
+        </AbsoluteFill>
+        <AbsoluteFill style={{top:'85%'}}>
+          <LineAnimation startAt={45}/>
+        </AbsoluteFill>
       </div>
     </AbsoluteFill>
   );

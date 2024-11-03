@@ -18,7 +18,7 @@ const ShowImage = ({
   
 
   // Calculate the scale animation for zoom out effect
-  const scaleAnimation = interpolate(frame, [delay, (durationInFrames )+delay], [1, 1.05], {
+  const scaleAnimation = interpolate(frame, [delay, (durationInFrames )+delay], [1, 1.2], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.ease),

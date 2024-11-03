@@ -9,6 +9,7 @@ import { useTextSplitter } from '../lib/useTextSplitter';
 import { TitleTextFromRight } from '../components/animations/TitleTextFromRight';
 import GradientOverlay from '../components/GradirntOverlay';
 import AnimatedBorder from '../components/AnimatedBorder';
+import LineAnimation from '../components/LineAnimation';
 
 export const scene3Schema = z.object({
   logo: z.string(),
@@ -58,11 +59,11 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         <div
           style={{
             position: 'absolute',
-            top: 100,
+            top: 150,
             right: WIDTH * 0.33,
           }}
         >
-          <Logo logo={staticFile('sample_logo.png')} height={150} direction="from-right" />
+          <Logo logo={staticFile('sample_logo.png')} height={150} direction="from-right" delay={48}  />
         </div>
 
         <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
@@ -79,6 +80,12 @@ const Scene3: React.FC<Scene3Props> = (props) => {
           <AnimatedBorder width={WIDTH * 0.2} height={150} borderWidth={10} />
         </div>
       </div>
+        <AbsoluteFill style={{top:'85%'}}>
+          <LineAnimation startAt={48}/>
+        </AbsoluteFill>
+        <AbsoluteFill style={{top:100,left:'50%'}}>
+          <LineAnimation startAt={45}/>
+        </AbsoluteFill>
     </AbsoluteFill>
   );
 };

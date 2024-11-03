@@ -10,6 +10,7 @@ import { TitleTextFromRight } from '../components/animations/TitleTextFromRight'
 import GradientOverlay from '../components/GradirntOverlay';
 import AnimatedBorder from '../components/AnimatedBorder';
 import ShowImage from '../components/ShowImage';
+import LineAnimation from '../components/LineAnimation';
 
 export const scene5Schema = z.object({
   logo: z.string(),
@@ -47,7 +48,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
         </div>
 
         <div style={{ position: 'absolute', top: 0, right: '20%', width: WIDTH * 0.13 }}>
-          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.1} delay={20} rate={0.1} />
+          <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.1} delay={45} rate={0.1} />
         </div>
 
         <div
@@ -59,7 +60,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
             transform: 'translate(-60%,-50%)',
           }}
         >
-          <GradientOverlay direction="rightToLeft" height={300} opacity={0.2} rate={0} />
+          <GradientOverlay direction="rightToLeft" height={300} opacity={0.2} delay={45} rate={0} />
         </div>
 
         <div
@@ -71,7 +72,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
           }}
         >
           <div style={{ marginBottom: 50 }}>
-            <Logo logo={staticFile('sample_logo.png')} height={120} direction="from-right" />
+            <Logo logo={staticFile('sample_logo.png')} height={120} delay={45} direction="from-right" />
           </div>
           <TitleTextFromRight text={titleSplit.text} gradient startAt={48} />
         </div>
@@ -86,6 +87,15 @@ const Scene5: React.FC<Scene5Props> = (props) => {
           <AnimatedBorder width={WIDTH * 0.5} height={250} borderWidth={10} />
         </div>
       </div>
+        <AbsoluteFill style={{top:'30%'}}>
+          <LineAnimation startAt={48}/>
+        </AbsoluteFill>
+        <AbsoluteFill style={{top:150,left:'75%'}}>
+          <LineAnimation startAt={45} gradient />
+        </AbsoluteFill>
+        <AbsoluteFill style={{top:'85%',left:'60%'}}>
+          <LineAnimation startAt={45} gradient />
+        </AbsoluteFill>
     </AbsoluteFill>
   );
 };
