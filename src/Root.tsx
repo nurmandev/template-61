@@ -37,20 +37,20 @@ export const RemotionRoot: React.FC = () => {
             primary: 'FrancoisOne',
             secondary: 'Abel',
           },
-          transitionDuration:50,
+          transitionDuration: 50,
           scene1Duration: 200,
           scene1Props: {
             logo: staticFile('sample_logo.png'),
             title: 'MASTER ENGLISH, MASTER THE WORLD',
-            img1:staticFile('teaching.png'),
-            img2:staticFile('books.jpg')
+            img1: staticFile('teaching.png'),
+            img2: staticFile('books.jpg')
           },
           scene2Duration: 200,
           scene2Props: {
             logo: staticFile('sample_logo.png'),
             title: 'WANT TO SPEAK ENGLISH FLUENTLY?',
-            img1:staticFile('bubble.webp'),
-            img2:staticFile('Media_4.jpg')
+            img1: staticFile('bubble.webp'),
+            img2: staticFile('Media_4.jpg')
           },
           scene3Duration: 200,
           scene3Props: {
@@ -74,17 +74,17 @@ export const RemotionRoot: React.FC = () => {
           scene6Props: {
             title: 'ENROLL NOW AND START YOUR JOURNEY TO ENGLISH FLUENCY!',
             logo: staticFile('sample_logo.png'),
-            subTitle:'wwww.example.com'
+            subTitle: 'wwww.example.com'
           },
         }}
       />
-      
+
       <Composition
         id="Compare"
         component={Compare}
         schema={MainSchema}
         fps={30}
-        width={1920}
+        width={1920 * 2}
         height={1080}
         durationInFrames={900}
         defaultProps={{
@@ -111,20 +111,20 @@ export const RemotionRoot: React.FC = () => {
             primary: 'FrancoisOne',
             secondary: 'Abel',
           },
-          transitionDuration:50,
+          transitionDuration: 50,
           scene1Duration: 200,
           scene1Props: {
             logo: staticFile('sample_logo.png'),
             title: 'MASTER ENGLISH, MASTER THE WORLD',
-            img1:staticFile('teaching.png'),
-            img2:staticFile('books.jpg')
+            img1: staticFile('teaching.png'),
+            img2: staticFile('books.jpg')
           },
           scene2Duration: 200,
           scene2Props: {
             logo: staticFile('sample_logo.png'),
             title: 'WANT TO SPEAK ENGLISH FLUENTLY?',
-            img1:staticFile('bubble.webp'),
-            img2:staticFile('Media_4.jpg')
+            img1: staticFile('bubble.webp'),
+            img2: staticFile('Media_4.jpg')
           },
           scene3Duration: 200,
           scene3Props: {
@@ -148,7 +148,7 @@ export const RemotionRoot: React.FC = () => {
           scene6Props: {
             title: 'ENROLL NOW AND START YOUR JOURNEY TO ENGLISH FLUENCY!',
             logo: staticFile('sample_logo.png'),
-            subTitle:'wwww.example.com'
+            subTitle: 'wwww.example.com'
           },
         }}
       />

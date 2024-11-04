@@ -30,63 +30,63 @@ const Scene3: React.FC<Scene3Props> = (props) => {
   });
   return (
     <AbsoluteFill>
-      <DiagonalSweep  masks={[
-    { width: 300, start: [0, 0], end: [1920, 1080] },
-    { width: 200, start: [960, 540], end: [1920, 1080] },
-    { width: 200, start: [480, 270], end: [1920, 1080] },
-    { width: 200, start: [1440, 810], end: [0, 0] },
-    { width: 400, start: [1920, 1080], end: [0, 0] },
-  ]}>
-      <AbsoluteFill
-        style={{
-          ...titleSplit.style,
-          color: colorVar('primaryText'),
-          position: 'relative',
-        }}
-      >
-        <AbsoluteFill style={{ position: 'absolute', top: 0, right: 0 }}>
-          <img src={props.img} />
-        </AbsoluteFill>
-        <GradientOverlay direction="leftToRight" height={HEIGHT} rate={0.46} delay={45} />
-        <div style={{ position: 'absolute', top: '35%', left: 0, width: WIDTH * 0.5 }}>
-          <GradientOverlay
-            direction="rightToLeft"
-            height={HEIGHT * 0.2}
-            opacity={0.2}
-            rate={0.46} delay={45}
-          />
-        </div>
-        <div
+      <DiagonalSweep masks={[
+        { width: 300, start: [0, 0], end: [1920, 1080] },
+        { width: 200, start: [960, 540], end: [1920, 1080] },
+        { width: 200, start: [480, 270], end: [1920, 1080] },
+        { width: 200, start: [1440, 810], end: [0, 0] },
+        { width: 400, start: [1920, 1080], end: [0, 0] },
+      ]}>
+        <AbsoluteFill
           style={{
-            position: 'absolute',
-            top: 150,
-            right: WIDTH * 0.33,
+            ...titleSplit.style,
+            color: colorVar('primaryText'),
+            position: 'relative',
           }}
         >
-          <Logo logo={props.logo} height={150} direction="from-right" delay={48}  />
-        </div>
+          <AbsoluteFill style={{ position: 'absolute', top: 0, right: 0 }}>
+            <img src={props.img} />
+          </AbsoluteFill>
+          <GradientOverlay direction="leftToRight" height={HEIGHT} rate={0.46} delay={45} />
+          <div style={{ position: 'absolute', top: '35%', left: 0, width: WIDTH * 0.5 }}>
+            <GradientOverlay
+              direction="rightToLeft"
+              height={HEIGHT * 0.2}
+              opacity={0.2}
+              rate={0.46} delay={45}
+            />
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              top: 150,
+              right: WIDTH * 0.33,
+            }}
+          >
+            <Logo logo={props.logo} height={150} direction="from-right" delay={48} />
+          </div>
 
-        <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
-          <TitleTextFromRight text={titleSplit.text} startAt={48} />
-        </div>
+          <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
+            <TitleTextFromRight text={titleSplit.text} startAt={48} />
+          </div>
 
-        <div style={{ position: 'absolute', top: 100, right: '-35%' }}>
-          <AnimatedBorder width={WIDTH * 0.5} height={200} borderWidth={10} />
-        </div>
+          <div style={{ position: 'absolute', top: 100, right: '-35%' }}>
+            <AnimatedBorder width={WIDTH * 0.5} height={200} borderWidth={10} />
+          </div>
 
-        <div
-          style={{ position: 'absolute', bottom: -100, right: '35%', transform: 'rotate(90deg)' }}
-        >
-          <AnimatedBorder width={WIDTH * 0.2} height={150} borderWidth={10} />
-        </div>
-      </AbsoluteFill>
-        <AbsoluteFill style={{top:'85%'}}>
-          <LineAnimation startAt={48}/>
+          <div
+            style={{ position: 'absolute', bottom: -100, right: '35%', transform: 'rotate(90deg)' }}
+          >
+            <AnimatedBorder width={WIDTH * 0.2} height={150} borderWidth={10} />
+          </div>
         </AbsoluteFill>
-        <AbsoluteFill style={{top:100,left:'50%'}}>
-          <LineAnimation startAt={45}/>
+        <AbsoluteFill style={{ top: '85%' }}>
+          <LineAnimation startAt={48} />
         </AbsoluteFill>
-        </DiagonalSweep>
+        <AbsoluteFill style={{ top: 100, left: '50%' }}>
+          <LineAnimation startAt={45} />
+        </AbsoluteFill>
+      </DiagonalSweep>
     </AbsoluteFill>
   );
 };
