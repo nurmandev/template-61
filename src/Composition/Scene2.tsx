@@ -1,4 +1,4 @@
-import { AbsoluteFill, staticFile } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { z } from 'zod';
 import { useTextSplitter } from '../lib/useTextSplitter';
 import { colorVar } from '../lib/helpers';
@@ -15,7 +15,8 @@ import SlideWrapper from '../components/SlideWrapper';
 export const scene2Schema = z.object({
   logo: z.string(),
   title: z.string(),
-  subtitle: z.string().optional(),
+  img1: z.string(),
+  img2: z.string(),
 });
 type Scene2Props = z.infer<typeof scene2Schema> & { background: BackgroundProps };
 
@@ -48,11 +49,11 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         }}
       >
         <AbsoluteFill style={{ right:"50%",alignItems:"flex-end", transform:"translate(-50%)"}}>
-          <ShowImage src={staticFile('bubble.webp')} height={HEIGHT * 0.45} delay={34} rate={0.15} />
+          <ShowImage src={props.img1} height={HEIGHT * 0.45} delay={34} rate={0.15} />
         </AbsoluteFill>
         <AbsoluteFill style={{left:"50%",top:"25%",bottom: 100,}}>
           <ShowImage
-            src={staticFile('Media_4.jpg')}
+            src={props.img2}
             width={WIDTH * 0.5 - 100}
             height={HEIGHT * 0.65}
             rate={0}
@@ -63,9 +64,11 @@ const Scene2: React.FC<Scene2Props> = (props) => {
           style={{
             top: 20,
             right: 20,
+            left:'auto',
+            width:250
           }}
         >
-          <Logo logo={staticFile('sample_logo.png')} height={100} direction="from-right" delay={50} />
+          <Logo logo={props.logo} height={100} direction="from-right" delay={50} />
         </AbsoluteFill>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} delay={50} />

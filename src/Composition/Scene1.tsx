@@ -1,4 +1,4 @@
-import { AbsoluteFill, staticFile } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { z } from 'zod';
 import { useTextSplitter } from '../lib/useTextSplitter';
 import { colorVar } from '../lib/helpers';
@@ -14,7 +14,8 @@ import LineAnimation from '../components/LineAnimation';
 export const scene1Schema = z.object({
   logo: z.string(),
   title: z.string(),
-  subtitle: z.string().optional(),
+  img1: z.string(),
+  img2: z.string(),
 });
 type Scene1Props = z.infer<typeof scene1Schema> & { background: BackgroundProps };
 
@@ -35,34 +36,24 @@ const Scene1: React.FC<Scene1Props> = (props) => {
 
       <AbsoluteFill
         style={{
-          width: WIDTH,
-          height: HEIGHT,
           ...titleSplit.style,
           color: colorVar('primaryText'),
           background: 'linear-gradient(0deg, rgba(246,17,115,1) 0%, rgba(227,186,17,1) 100%)',
-          padding: 100,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
         }}
       >
-        <div style={{ position: 'absolute', top: 0, right: 500 }}>
-          <ShowImage src={staticFile('teaching.png')} height={HEIGHT} rate={0.65} delay={5} />
-        </div>
-        <div style={{ position: 'absolute', top: 0, right: 0 }}>
-          <ShowImage src={staticFile('books.jpg')} width={500} height={HEIGHT * 0.7} rate={0} />
-        </div>{' '}
-        <div
-          style={{
-            marginBottom: 70,
-          }}
-        >
-          <Logo logo={staticFile('sample_logo.png')} height={300} direction="from-right" delay={15} />
-        </div>
+        <AbsoluteFill style={{right:0,width:500,left:'auto'}}>
+          <ShowImage src={props.img2} height={HEIGHT*0.7} width={500} rate={0} delay={5} />
+        </AbsoluteFill>
+        <AbsoluteFill style={{left:'40%' }}>
+          <ShowImage src={props.img1} width={620} height={HEIGHT} rate={0} />
+        </AbsoluteFill>
+        <AbsoluteFill style={{left:100,top:'35%'}}>
+          <Logo logo={props.logo} height={200} direction="from-right" delay={15} />
         <TitleTextFromRight text={titleSplit.text} startAt={16} />
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+          </AbsoluteFill>
+          <AbsoluteFill style={{top:'80%',alignItems:'center'}}>
           <AnimatedBorder width={WIDTH * 0.5} height={90} borderWidth={10} />
-        </div>
+          </AbsoluteFill>
         
         <AbsoluteFill style={{  width: WIDTH * 0.12,left:'10%' }}>
           <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.15} rate={0} delay={16} gradient={false} />
