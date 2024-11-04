@@ -10,6 +10,7 @@ import ShowImage from '../components/ShowImage';
 import AnimatedBorder from '../components/AnimatedBorder';
 import LineAnimation from '../components/LineAnimation';
 import GradientOverlay from '../components/GradirntOverlay';
+import SlideWrapper from '../components/SlideWrapper';
 
 export const scene2Schema = z.object({
   logo: z.string(),
@@ -31,7 +32,9 @@ const Scene2: React.FC<Scene2Props> = (props) => {
 
   return (
     <AbsoluteFill>
-      <div
+      <SlideWrapper slides={4} direction='horizontal'>
+        <>
+      <AbsoluteFill
         style={{
           width: WIDTH,
           height: HEIGHT,
@@ -44,10 +47,10 @@ const Scene2: React.FC<Scene2Props> = (props) => {
           justifyContent: 'flex-end',
         }}
       >
-        <div style={{ position: 'absolute', top: 0, right: WIDTH * 0.5 }}>
+        <AbsoluteFill style={{ right:"50%",alignItems:"flex-end", transform:"translate(-50%)"}}>
           <ShowImage src={staticFile('bubble.webp')} height={HEIGHT * 0.45} delay={34} rate={0.15} />
-        </div>
-        <div style={{ position: 'absolute', bottom: 100, right: 100 }}>
+        </AbsoluteFill>
+        <AbsoluteFill style={{left:"50%",top:"25%",bottom: 100,}}>
           <ShowImage
             src={staticFile('Media_4.jpg')}
             width={WIDTH * 0.5 - 100}
@@ -55,16 +58,15 @@ const Scene2: React.FC<Scene2Props> = (props) => {
             rate={0}
             delay={34}
           />
-        </div>{' '}
-        <div
+        </AbsoluteFill>
+        <AbsoluteFill
           style={{
-            position: 'absolute',
             top: 20,
             right: 20,
           }}
         >
           <Logo logo={staticFile('sample_logo.png')} height={100} direction="from-right" delay={50} />
-        </div>
+        </AbsoluteFill>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} delay={50} />
         </div>
@@ -72,7 +74,7 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         <div style={{ marginTop: 50, marginBottom: -20 }}>
           <AnimatedBorder width={WIDTH * 0.2} height={90} borderWidth={15} delay={50} />
         </div>
-      </div>
+      </AbsoluteFill>
         <AbsoluteFill style={{left:100,top:100}}>
           <LineAnimation/>
         </AbsoluteFill>
@@ -85,7 +87,8 @@ const Scene2: React.FC<Scene2Props> = (props) => {
         </AbsoluteFill>
         <AbsoluteFill style={{  width: WIDTH * 0.12,left:'10%' }}>
           <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.15} rate={0} delay={30} gradient={false} />
-        </AbsoluteFill>
+        </AbsoluteFill></>
+    </SlideWrapper>
     </AbsoluteFill>
   );
 };

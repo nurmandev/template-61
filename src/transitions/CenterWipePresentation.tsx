@@ -25,7 +25,7 @@ const makePathIn = (progress: number, direction: 'horizontal' | 'vertical' | 'di
         
         case 'diagonal':
           return `
-            M ${horizontalCenter - progress / 2} 0
+            M ${(horizontalCenter) - progress / 2} 0
             L ${horizontalCenter + progress / 2} 0
             L ${horizontalCenter + progress / 2} 1
             L ${horizontalCenter - progress / 2} 1

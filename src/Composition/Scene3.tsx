@@ -10,6 +10,7 @@ import { TitleTextFromRight } from '../components/animations/TitleTextFromRight'
 import GradientOverlay from '../components/GradirntOverlay';
 import AnimatedBorder from '../components/AnimatedBorder';
 import LineAnimation from '../components/LineAnimation';
+import DiagonalSweep from '../components/DiagonalSweep';
 
 export const scene3Schema = z.object({
   logo: z.string(),
@@ -29,24 +30,23 @@ const Scene3: React.FC<Scene3Props> = (props) => {
   });
   return (
     <AbsoluteFill>
-      <div
+      <DiagonalSweep  masks={[
+    { width: 300, start: [0, 0], end: [1920, 1080] },
+    { width: 200, start: [960, 540], end: [1920, 1080] },
+    { width: 200, start: [480, 270], end: [1920, 1080] },
+    { width: 200, start: [1440, 810], end: [0, 0] },
+    { width: 400, start: [1920, 1080], end: [0, 0] },
+  ]}>
+      <AbsoluteFill
         style={{
-          width: WIDTH,
-          height: HEIGHT,
           ...titleSplit.style,
           color: colorVar('primaryText'),
-          background: 'linear-gradient(0deg, rgba(246,17,115,1) 0%, rgba(227,186,17,1) 100%)',
-          // padding: '100px',
-          // display: 'flex',
-          // flexDirection: 'column',
-          // justifyContent: 'flex-end',
-          // alignItems: 'flex-end',
           position: 'relative',
         }}
       >
-        <div style={{ position: 'absolute', top: 0, right: 0 }}>
-          <img src={staticFile('image3.jpg')} style={{ width: WIDTH, height: HEIGHT }} />
-        </div>
+        <AbsoluteFill style={{ position: 'absolute', top: 0, right: 0 }}>
+          <img src={staticFile('image3.jpg')} />
+        </AbsoluteFill>
         <GradientOverlay direction="leftToRight" height={HEIGHT} rate={0.46} delay={45} />
         <div style={{ position: 'absolute', top: '35%', left: 0, width: WIDTH * 0.5 }}>
           <GradientOverlay
@@ -79,13 +79,14 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         >
           <AnimatedBorder width={WIDTH * 0.2} height={150} borderWidth={10} />
         </div>
-      </div>
+      </AbsoluteFill>
         <AbsoluteFill style={{top:'85%'}}>
           <LineAnimation startAt={48}/>
         </AbsoluteFill>
         <AbsoluteFill style={{top:100,left:'50%'}}>
           <LineAnimation startAt={45}/>
         </AbsoluteFill>
+        </DiagonalSweep>
     </AbsoluteFill>
   );
 };

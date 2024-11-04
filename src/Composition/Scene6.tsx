@@ -9,6 +9,7 @@ import { useTextSplitter } from '../lib/useTextSplitter';
 import { TitleTextFromRight } from '../components/animations/TitleTextFromRight';
 import GradientOverlay from '../components/GradirntOverlay';
 import LineAnimation from '../components/LineAnimation';
+import SlideWrapper from '../components/SlideWrapper';
 
 export const scene6Schema = z.object({
   logo: z.string(),
@@ -28,6 +29,8 @@ const Scene6: React.FC<Scene6Props> = (props) => {
   });
   return (
     <AbsoluteFill>
+      <SlideWrapper slides={6} direction='horizontal'>
+        <>
       <div
         style={{
           width: WIDTH,
@@ -64,6 +67,7 @@ const Scene6: React.FC<Scene6Props> = (props) => {
         <AbsoluteFill style={{top:'70%',left:'80%'}}>
           <LineAnimation startAt={45} />
         </AbsoluteFill>
+        </></SlideWrapper>
     </AbsoluteFill>
   );
 };

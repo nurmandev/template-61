@@ -32,7 +32,8 @@ const Scene1: React.FC<Scene1Props> = (props) => {
 
   return (
     <AbsoluteFill>
-      <div
+
+      <AbsoluteFill
         style={{
           width: WIDTH,
           height: HEIGHT,
@@ -76,7 +77,7 @@ const Scene1: React.FC<Scene1Props> = (props) => {
         <AbsoluteFill style={{top:'85%'}}>
           <LineAnimation startAt={45}/>
         </AbsoluteFill>
-      </div>
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
