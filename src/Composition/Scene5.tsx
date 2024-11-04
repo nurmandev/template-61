@@ -1,4 +1,4 @@
-import { AbsoluteFill} from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { z } from 'zod';
 import Logo from '../components/Logo';
 import { HEIGHT, WIDTH } from '../lib/consts';
@@ -34,9 +34,10 @@ const Scene5: React.FC<Scene5Props> = (props) => {
         style={{
           ...titleSplit.style,
           color: colorVar('primaryText'),
-          background: 'white',        }}
+          background: 'white',
+        }}
       >
-        <AbsoluteFill style={{  top: 0, left: 0, width: WIDTH * 0.4 }}>
+        <AbsoluteFill style={{ top: 0, left: 0, width: WIDTH * 0.4 }}>
           <GradientOverlay direction="bottomToTop" height={HEIGHT} delay={15} opacity={1} rate={0} />
         </AbsoluteFill>
         <div style={{ position: 'absolute', top: 100, right: '50%' }}>
@@ -52,7 +53,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
             top: '50%',
             left: '50%',
             width: 200,
-            height:300,
+            height: 300,
             transform: 'translate(-60%,-50%)',
           }}
         >
@@ -83,15 +84,15 @@ const Scene5: React.FC<Scene5Props> = (props) => {
           <AnimatedBorder width={WIDTH * 0.5} height={250} borderWidth={10} />
         </div>
       </AbsoluteFill>
-        <AbsoluteFill style={{top:'30%'}}>
-          <LineAnimation startAt={48}/>
-        </AbsoluteFill>
-        <AbsoluteFill style={{top:150,left:'75%'}}>
-          <LineAnimation startAt={45} gradient />
-        </AbsoluteFill>
-        <AbsoluteFill style={{top:'85%',left:'60%'}}>
-          <LineAnimation startAt={45} gradient />
-        </AbsoluteFill>
+      <AbsoluteFill style={{ top: '30%' }}>
+        <LineAnimation startAt={48} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ top: 150, left: '75%' }}>
+        <LineAnimation startAt={45} gradient />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ top: '85%', left: '60%' }}>
+        <LineAnimation startAt={45} gradient />
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };

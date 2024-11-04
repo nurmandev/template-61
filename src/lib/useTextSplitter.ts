@@ -5,7 +5,7 @@ import { useIsFontLoaded } from './LoadFonts';
 import { Font } from '../types';
 import { fontVar } from './helpers';
 
-const DEBUG = true;
+const DEBUG = false;
 
 const createElement = (style: CSSProperties) => {
   const element = document.createElement('div');

@@ -21,11 +21,6 @@ const GradientOverlay = ({
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
-  // Calculate the scale animation for zoom out effect
-  const scaleAnimation = interpolate(frame, [delay, (durationInFrames * 0.5)+delay], [1, 1.05], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
 
   // Calculate the clip-path based on the direction prop
   let clipPathAnimation: string;
@@ -69,7 +64,7 @@ const GradientOverlay = ({
           // background: 'linear-gradient(45deg, #ff6f61, #ffde59)',
           background:gradient? 'linear-gradient(0deg, rgba(246,17,115,1) 0%, rgba(227,186,17,1) 100%)':"white",
           clipPath: clipPathAnimation,
-          transform: `scale(${scaleAnimation})`,
+          // transform: `scale(${scaleAnimation})`,
         }}
       />
     </div>
