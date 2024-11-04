@@ -51,6 +51,7 @@ const Logo = ({ logo, width, height, direction = 'from-left', delay = 0 }: LogoP
         position: 'relative',
         left: left,
         opacity: opacity,
+        marginBottom:50
       }}
     >
       <Img

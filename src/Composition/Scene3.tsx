@@ -1,4 +1,4 @@
-import { AbsoluteFill, staticFile } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { z } from 'zod';
 import Logo from '../components/Logo';
 import { HEIGHT, WIDTH } from '../lib/consts';
@@ -45,7 +45,7 @@ const Scene3: React.FC<Scene3Props> = (props) => {
         }}
       >
         <AbsoluteFill style={{ position: 'absolute', top: 0, right: 0 }}>
-          <img src={staticFile('image3.jpg')} />
+          <img src={props.img} />
         </AbsoluteFill>
         <GradientOverlay direction="leftToRight" height={HEIGHT} rate={0.46} delay={45} />
         <div style={{ position: 'absolute', top: '35%', left: 0, width: WIDTH * 0.5 }}>
@@ -63,7 +63,7 @@ const Scene3: React.FC<Scene3Props> = (props) => {
             right: WIDTH * 0.33,
           }}
         >
-          <Logo logo={staticFile('sample_logo.png')} height={150} direction="from-right" delay={48}  />
+          <Logo logo={props.logo} height={150} direction="from-right" delay={48}  />
         </div>
 
         <div style={{ position: 'absolute', bottom: 100, right: 100 }}>

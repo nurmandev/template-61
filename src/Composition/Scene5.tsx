@@ -1,4 +1,4 @@
-import { AbsoluteFill, staticFile } from 'remotion';
+import { AbsoluteFill} from 'remotion';
 import { z } from 'zod';
 import Logo from '../components/Logo';
 import { HEIGHT, WIDTH } from '../lib/consts';
@@ -30,38 +30,34 @@ const Scene5: React.FC<Scene5Props> = (props) => {
   });
   return (
     <AbsoluteFill>
-      <div
+      <AbsoluteFill
         style={{
-          width: WIDTH,
-          height: HEIGHT,
           ...titleSplit.style,
           color: colorVar('primaryText'),
-          background: 'white',
-          position: 'relative',
-        }}
+          background: 'white',        }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, width: WIDTH * 0.4 }}>
+        <AbsoluteFill style={{  top: 0, left: 0, width: WIDTH * 0.4 }}>
           <GradientOverlay direction="bottomToTop" height={HEIGHT} delay={15} opacity={1} rate={0} />
-        </div>
+        </AbsoluteFill>
         <div style={{ position: 'absolute', top: 100, right: '50%' }}>
-          <ShowImage src={staticFile('image6.jpg')} height={HEIGHT * 0.8} rate={0.45} />
+          <ShowImage src={props.img} height={HEIGHT * 0.8} rate={0.45} />
         </div>
 
         <div style={{ position: 'absolute', top: 0, right: '20%', width: WIDTH * 0.13 }}>
           <GradientOverlay direction="topToBottom" height={HEIGHT} opacity={0.1} delay={45} rate={0.1} />
         </div>
 
-        <div
+        <AbsoluteFill
           style={{
-            position: 'absolute',
             top: '50%',
             left: '50%',
             width: 200,
+            height:300,
             transform: 'translate(-60%,-50%)',
           }}
         >
           <GradientOverlay direction="rightToLeft" height={300} opacity={0.2} delay={45} rate={0} />
-        </div>
+        </AbsoluteFill>
 
         <div
           style={{
@@ -72,7 +68,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
           }}
         >
           <div style={{ marginBottom: 50 }}>
-            <Logo logo={staticFile('sample_logo.png')} height={120} delay={45} direction="from-right" />
+            <Logo logo={props.logo} height={120} delay={45} direction="from-right" />
           </div>
           <TitleTextFromRight text={titleSplit.text} gradient startAt={48} />
         </div>
@@ -86,7 +82,7 @@ const Scene5: React.FC<Scene5Props> = (props) => {
         >
           <AnimatedBorder width={WIDTH * 0.5} height={250} borderWidth={10} />
         </div>
-      </div>
+      </AbsoluteFill>
         <AbsoluteFill style={{top:'30%'}}>
           <LineAnimation startAt={48}/>
         </AbsoluteFill>

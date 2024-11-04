@@ -1,4 +1,4 @@
-import { AbsoluteFill, staticFile } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { z } from 'zod';
 import Logo from '../components/Logo';
 import { HEIGHT, WIDTH } from '../lib/consts';
@@ -13,8 +13,8 @@ import SlideWrapper from '../components/SlideWrapper';
 
 export const scene6Schema = z.object({
   logo: z.string(),
-  img: z.string(),
   title: z.string(),
+  subTitle: z.string(),
 });
 type Scene6Props = z.infer<typeof scene6Schema> & { background: BackgroundProps };
 
@@ -45,7 +45,7 @@ const Scene6: React.FC<Scene6Props> = (props) => {
         <AbsoluteFill style={{ display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column", }}>
           <div style={{marginBottom:30}}>
 
-          <Logo logo={staticFile('sample_logo.png')} height={250} direction="from-right" />
+          <Logo logo={props.logo} height={250} direction="from-right" />
           </div>
           <div style={{textAlign:"center",
           ...titleSplit.style}}>
@@ -54,7 +54,7 @@ const Scene6: React.FC<Scene6Props> = (props) => {
           </div>
           <div style={{fontSize:70}}>
 
-        <TitleTextFromRight text={"www.example.com"} startAt={70} />
+        <TitleTextFromRight text={props.subTitle} startAt={70} />
           </div>
         </AbsoluteFill>
         <div style={{ position: 'absolute', top: 0, right:100, width: WIDTH * 0.13 }}>

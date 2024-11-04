@@ -1,4 +1,4 @@
-import { AbsoluteFill, staticFile } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { z } from 'zod';
 import Logo from '../components/Logo';
 import { HEIGHT, WIDTH } from '../lib/consts';
@@ -31,27 +31,19 @@ const Scene4: React.FC<Scene4Props> = (props) => {
   return (
     <AbsoluteFill>
       <SlideWrapper slides={5} direction='vertical'><>
-      <div
+      <AbsoluteFill
         style={{
-          width: WIDTH,
-          height: HEIGHT,
           ...titleSplit.style,
           color: colorVar('primaryText'),
           background: 'linear-gradient(0deg, rgba(246,17,115,1) 0%, rgba(227,186,17,1) 100%)',
-          // padding: '100px',
-          // display: 'flex',
-          // flexDirection: 'column',
-          // justifyContent: 'flex-end',
-          // alignItems: 'flex-end',
-          position: 'relative',
         }}
       >
-        <div style={{ position: 'absolute', top: 0, right: 0 }}>
-          <img src={staticFile('image6.jpg')} style={{ width: WIDTH, height: HEIGHT }} />
-        </div>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: WIDTH * 0.5 }}>
+        <AbsoluteFill style={{  top: 0, right: 0 }}>
+          <img src={props.img} style={{ width: WIDTH, height: HEIGHT }} />
+        </AbsoluteFill>
+        <AbsoluteFill style={{  top: 0, left: 0, width: WIDTH * 0.5 }}>
           <GradientOverlay direction="leftToRight" height={HEIGHT} opacity={0.5} rate={0.5} />
-        </div>
+        </AbsoluteFill>
 
         <div style={{ position: 'absolute', top: 0, right: 0, width: WIDTH * 0.5 }}>
           <GradientOverlay direction="rightToLeft" height={HEIGHT} opacity={0.5} rate={0.5} />
@@ -64,7 +56,7 @@ const Scene4: React.FC<Scene4Props> = (props) => {
             transform: 'translate(50%)',
           }}
         >
-          <Logo logo={staticFile('sample_logo.png')} height={120} direction="from-right" />
+          <Logo logo={props.logo} height={120} direction="from-right" />
         </div>
 
         <div
@@ -87,7 +79,7 @@ const Scene4: React.FC<Scene4Props> = (props) => {
         >
           <AnimatedBorder width={WIDTH * 0.4} height={150} borderWidth={10} />
         </div>
-      </div>
+      </AbsoluteFill>
         <AbsoluteFill style={{  width: WIDTH * 0.11,top:100, left:0 }}>
           <GradientOverlay direction="bottomToTop" height={HEIGHT} opacity={0.5} rate={0.5} delay={45} gradient={true}  />
         </AbsoluteFill>
