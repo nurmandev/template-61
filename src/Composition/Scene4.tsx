@@ -10,6 +10,7 @@ import { TitleTextFromRight } from '../components/animations/TitleTextFromRight'
 import GradientOverlay from '../components/GradirntOverlay';
 import AnimatedBorder from '../components/AnimatedBorder';
 import LineAnimation from '../components/LineAnimation';
+import SlideWrapper from '../components/SlideWrapper';
 
 export const scene4Schema = z.object({
   logo: z.string(),
@@ -29,6 +30,7 @@ const Scene4: React.FC<Scene4Props> = (props) => {
   });
   return (
     <AbsoluteFill>
+      <SlideWrapper slides={5} direction='vertical'><>
       <div
         style={{
           width: WIDTH,
@@ -94,7 +96,7 @@ const Scene4: React.FC<Scene4Props> = (props) => {
         </AbsoluteFill>
         <AbsoluteFill style={{top:200,left:'80%'}}>
           <LineAnimation startAt={45}/>
-        </AbsoluteFill>
+        </AbsoluteFill></></SlideWrapper>
     </AbsoluteFill>
   );
 };
